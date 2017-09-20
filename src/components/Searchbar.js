@@ -19,6 +19,13 @@ export default class Searchbar extends Component {
     this.setState({ query: this.state.query })
     let altQuery = this.state.query.trim().replace(/[^\w\s]/, '').replace(/\s+/, '+')
     console.log('altQuery: ', altQuery);
+    fetch('https://itunes.apple.com/search?term=' + altQuery + '&entity=song&limit=24')
+    .then(response => response.json())
+    .then(data => {
+      this.setState({ results: data.results })
+      console.log('this.state.results: ', this.state.results);
+    })
+    .catch(err => console.log('Error fetching data: ', err))
   }
 
   render() {
