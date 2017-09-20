@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 
+import Navbar from './Navbar'
+import Results from './Results'
 import Player from './Player'
 
 class App extends Component {
