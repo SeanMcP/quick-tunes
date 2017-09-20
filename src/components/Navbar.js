@@ -7,7 +7,7 @@ export default class Navbar extends Component {
     return (
       <nav>
         <h1>QuickTunes<span className="text-muted">30 seconds of your favorite songs</span></h1>
-        <Searchbar />
+        <Searchbar onSubmit={this.props.onSubmit} onChange={this.props.onChange}/>
       </nav>
     );
   }
