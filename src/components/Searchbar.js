@@ -8,20 +8,21 @@ export default class Searchbar extends Component {
       results: [],
       query: ''
     }
-
-    this.searchAPI = this.searchAPI.bind(this)
+    this.handleQuery = this.handleQuery.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
-  searchAPI(e) {
+  handleQuery(e){ this.setState({ query: e.target.value }) }
+
+  handleSearch(e) {
     e.preventDefault()
-    this.setState({query: document.getElementById('searchBar').value})
-    console.log('this.state.query: ', this.state.query);
+    this.setState({ query: this.state.query })
   }
 
   render() {
     return (
-      <form onSubmit={this.searchAPI}>
-        <input id="searchBar" type="text" placeholder="Song or artist" value=""/>
+      <form onSubmit={this.handleSearch}>
+        <input id="searchBar" type="text" placeholder="Song or artist" onChange={this.handleQuery} value={this.state.query} />
         <input type="submit" value="Search" />
       </form>
     );
