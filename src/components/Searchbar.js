@@ -17,6 +17,8 @@ export default class Searchbar extends Component {
   handleSearch(e) {
     e.preventDefault()
     this.setState({ query: this.state.query })
+    let altQuery = this.state.query.trim().replace(/[^\w\s]/, '').replace(/\s+/, '+')
+    console.log('altQuery: ', altQuery);
   }
 
   render() {
