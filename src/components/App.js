@@ -14,6 +14,7 @@ class App extends Component {
     }
     this.handleQuery = this.handleQuery.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
+
   }
   handleQuery(e){
     this.setState({ query: e.target.value })
@@ -32,8 +33,9 @@ class App extends Component {
     })
     .catch(err => console.log('Error fetching data: ', err))
   }
+
   render() {
-    console.log('this.state.query: ', this.state.query);
+    // console.log('this.state.query: ', this.state.query);
     return (
       <div className="App">
         <Navbar onSubmit={this.handleSearch} onChange={this.handleQuery}/>
