@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Playing from './Playing'
+
 export default class Results extends Component {
   constructor(props) {
     super(props)
@@ -27,7 +29,9 @@ export default class Results extends Component {
     let resultArr = this.props.data.map(item => {
       return (
         <div key={item.trackId} className="card song">
-          <div style={{height: 100, width: 100, backgroundImage: `url('${item.artworkUrl100}')`}}></div>
+          <div style={{height: 100, width: 100, backgroundImage: `url('${item.artworkUrl100}')`}}>
+            <Playing />
+          </div>
           <img src={item.artworkUrl100} alt={item.artistName} data-previewurl={item.previewUrl} onClick={this.handlePlay}/>
           <h4 className="card-title">{item.trackCensoredName}</h4>
           <p>{item.artistName}</p>

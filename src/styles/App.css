@@ -1,24 +1,54 @@
-.App {
-  text-align: center;
+.playing {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100px;
+  width: 100px;
+  transition: background 0.2s ease-in-out;
+}
+.playing > div {
+  position: absolute;
+}
+.playing:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+.playing:hover > div[class="pause-button"] {
+  opacity: 1;
+}
+.playing:hover > div[class="play-button"] {
+  opacity: 0;
+}
+.spinning {
+  animation: spin 2s linear infinite;
+  background: 0;
+  border: 10px solid rgba(255, 255, 255, 0.2);
+  border-top-color: rgba(255, 255, 255, 0.4);
+  border-radius: 40px;
+  height: 60px;
+  width: 60px;
+  margin: 10px;
+  transition: all 0.2s ease-in-out;
+  z-index: 1;
+}
+.play-button {
+  border-style: solid;
+  border-width: 18px 0 18px 30px;
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.6);
+  height: 0;
+  width: 0;
+  margin: 32px 38px;
+  z-index: 2;
+}
+.pause-button {
+  border: 8px solid rgba(255, 255, 255, 0.6);
+  border-top: none;
+  border-bottom: none;
+  height: 36px;
+  margin: 32px 36px;
+  width: 12px;
+  opacity: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
