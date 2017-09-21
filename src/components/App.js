@@ -24,7 +24,7 @@ class App extends Component {
     e.preventDefault()
     this.setState({ query: this.state.query })
     let altQuery = this.state.query.trim().replace(/[^\w\s]/, '').replace(/\s+/, '+')
-    console.log('altQuery: ', altQuery);
+    document.getElementById('searchBar').value = ''
     fetch('https://itunes.apple.com/search?term=' + altQuery + '&entity=song&limit=24')
     .then(response => response.json())
     .then(data => {
